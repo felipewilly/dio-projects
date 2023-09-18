@@ -1,5 +1,5 @@
 '''
-Sistema Bancario, dasfio dio.me, nesse desafio irei segueir conforme aulas apresentado para caminhar por todo o percurso ja aprendido em python
+Sistema Bancário, desafio dio.me, nesse desafio irei seguir conforme aulas apresentado para caminhar por todo o percurso já aprendido em python
 '''
 
 
@@ -35,4 +35,4 @@ while True:
         break
 
     else:
-        print('Opção digitada incorreta tente as OP ')
+        print('Opção digitada incorreta tente outra OP ')
