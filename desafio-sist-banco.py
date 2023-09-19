@@ -32,7 +32,7 @@ while True:
     elif opcao == 's':
 
         print('-='*15)
-        print(f'Saldo atual na conta: {saldo}')
+        print(f'Saldo atual na conta: R${saldo}')
         print('-='*15)
 
         if numero_saques < LIMITE_SAQUES:
@@ -49,7 +49,7 @@ while True:
 
                 if saldo - saque < 0:
 
-                    print(f'saque indisponivel {saque}  saldo conta: {saldo}')
+                    print(f'saque indisponivel R${saque}  saldo conta: R${saldo}')
 
                 else:
 
