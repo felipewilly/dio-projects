@@ -21,16 +21,43 @@ def deposito(user):
         if  deposito > 0:
             user['saldo'] += deposito
 
-def sacar():
-    ...
+def sacar(user):
+
+    print('-='*15)
+    print(f'Saldo atual na conta: R$ { user["saldo"]}')
+    print('-='*15)
+
+    if user['numero_saques'] < user['limite_saque']:
+
+        user['numero_saques'] += 1
+
+        saque = float(input('Valor de saque: '))
+
+        if saque > 500:
+
+            print('Valor saque maior que limite permitido R$ 500,00 ')
+
+        else:
+
+            if user['saldo'] - saque < 0:
+
+                print(user['numero_saques'])
+
+                print(f'saque indisponivel R${saque}  saldo conta: R${user["saldo"]}')
+
+            else:
+
+                user['saldo'] = user['saldo'] - saque
+
+
+    else:
+
+        print('Limite saque atingido no dia.')
 
 def extrato():
     ...
 
-
 def main(user):
-
-    limite_saque = 3
 
     while True:
 
@@ -40,38 +67,9 @@ def main(user):
 
             deposito(user=user)
 
-
         elif opcao == 's':
-
-            print('-='*15)
-            print(f'Saldo atual na conta: R${ user["saldo"] }')
-            print('-='*15)
-
-            if user['numero_saques'] < limite_saque:
-
-                numero_saques += 1
-
-                saque = float(input('Valor de saque: '))
-
-                if saque > 500:
-
-                    print('Valor saque maior que limite permitido R$ 500,00 ')
-
-                else:
-
-                    if saldo - saque < 0:
-
-                        print(f'saque indisponivel R${saque}  saldo conta: R${saldo}')
-
-                    else:
-
-                        saldo = saldo - saque
-                        extrato.append(saque)
-
-            else:
-
-                print('Limite saque atingido no dia.')
-
+             
+             sacar(user=user)
 
         elif opcao == 'e':
 
@@ -83,12 +81,12 @@ def main(user):
         else:
             print('Opção digitada incorreta tente outra OP ')
 
-
 if __name__ == "__main__":
 
     cliente = {
-        'saldo' : 100,
+        'saldo' : 0,
         'limite' : 500,
+        'limite_saque': 3,
         'numero_saques': 0,
         'extrato':[] } 
     
